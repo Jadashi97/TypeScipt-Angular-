@@ -76,4 +76,17 @@ var user = {
 var welcomePage = function (user) {
     console.log("Hey welcome ".concat(user.name, ", you are from ").concat(user.state, ", you are ").concat(user.age, " and live in ").concat(user.city));
 };
-welcomePage(user);
+// welcomePage(user);
+//////////////////////////  Classess ///////////
+var userName = /** @class */ (function () {
+    function userName(name, state, age, employeed) {
+        this.name = name,
+            this.age = age,
+            this.employeed = employeed,
+            this.state = state;
+        console.log("Created a new User named ".concat(this.name, " who is ").concat(this.age, " and ").concat(this.employeed, " he is employeed, plus he stays in ").concat(this.state));
+    }
+    return userName;
+}());
+var userName1 = new userName("lokose", "MN", 26, true);
+var userName2 = new userName("Daniel", "VA", 20, false);

@@ -62,4 +62,25 @@ let welcomePage = (user:UserData)=>{
     console.log(`Hey welcome ${user.name}, you are from ${user.state}, you are ${user.age} and live in ${user.city}`)
 }
 
-welcomePage(user);
+// welcomePage(user);
+
+//////////////////////////  Classess ///////////
+
+class userName{
+    name: string;
+    state: string;
+    age: number;
+    employeed: boolean;
+
+    constructor(name:string, state:string, age:number, employeed:boolean){
+        this.name = name,
+        this.age = age,
+        this.employeed = employeed,
+        this.state = state;
+        console.log(`Created a new User named ${this.name
+        } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
+    }
+}
+
+const userName1 = new userName("lokose", "MN", 26, true);
+const userName2 = new userName("Daniel", "VA", 20, false);
