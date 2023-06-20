@@ -71,16 +71,24 @@ class userName{
     state: string;
     age: number;
     employeed: boolean;
+    city: string
 
-    constructor(name:string, state:string, age:number, employeed:boolean){
+    constructor(name:string, state:string, age:number, employeed:boolean, city:string ){
         this.name = name,
         this.age = age,
         this.employeed = employeed,
         this.state = state;
-        console.log(`Created a new User named ${this.name
-        } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
+        this.city = city;
+        // console.log(`Created a new User named ${this.name
+        // } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
+    }
+
+    welcomePage(){
+        console.log(`Hey welcome ${this.name}, you are from ${this.state}, you are ${this.age} and live in ${this.city}`
+        )
     }
 }
 
-const userName1 = new userName("lokose", "MN", 26, true);
-const userName2 = new userName("Daniel", "VA", 20, false);
+const userName1 = new userName("lokose", "MN", 26, true, "Bloomington");
+userName1.welcomePage()
+// const userName2 = new userName("Daniel", "VA", 20, false);

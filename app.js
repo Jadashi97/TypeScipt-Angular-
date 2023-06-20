@@ -79,14 +79,20 @@ var welcomePage = function (user) {
 // welcomePage(user);
 //////////////////////////  Classess ///////////
 var userName = /** @class */ (function () {
-    function userName(name, state, age, employeed) {
+    function userName(name, state, age, employeed, city) {
         this.name = name,
             this.age = age,
             this.employeed = employeed,
             this.state = state;
-        console.log("Created a new User named ".concat(this.name, " who is ").concat(this.age, " and ").concat(this.employeed, " he is employeed, plus he stays in ").concat(this.state));
+        this.city = city;
+        // console.log(`Created a new User named ${this.name
+        // } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
     }
+    userName.prototype.welcomePage = function () {
+        console.log("Hey welcome ".concat(this.name, ", you are from ").concat(this.state, ", you are ").concat(this.age, " and live in ").concat(this.city));
+    };
     return userName;
 }());
-var userName1 = new userName("lokose", "MN", 26, true);
-var userName2 = new userName("Daniel", "VA", 20, false);
+var userName1 = new userName("lokose", "MN", 26, true, "Bloomington");
+userName1.welcomePage();
+// const userName2 = new userName("Daniel", "VA", 20, false);
