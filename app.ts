@@ -65,15 +65,22 @@ let welcomePage = (user:UserData)=>{
 // welcomePage(user);
 
 //////////////////////////  Classess ///////////
-
-class userName{
+interface UserInterface {
     name: string;
     state: string;
-    age: number;
-    employeed: boolean;
-    city: string
+    city: string;
+    signedOff():any;
+}
 
-    constructor(name:string, state:string, age:number, employeed:boolean, city:string ){
+class userName{
+
+    constructor(
+        public name:string, 
+        public state:string, 
+        public age:number, 
+        public employeed:boolean, 
+        public city:string 
+        ){
         this.name = name,
         this.age = age,
         this.employeed = employeed,
@@ -81,14 +88,31 @@ class userName{
         this.city = city;
         // console.log(`Created a new User named ${this.name
         // } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
+
+        this.welcomePage();
+        this.signedOff();
     }
 
-    welcomePage(){
+    private welcomePage(){
         console.log(`Hey welcome ${this.name}, you are from ${this.state}, you are ${this.age} and live in ${this.city}`
         )
     }
+
+    signedOff(){
+        console.log(
+            `${this.name} who is ${this.age} years olf from ${this.city}, ${this.state} just signed out`
+        );
+    }
+
+    //////// setters and getters ///////
+    set Age(value: number){
+        this.age =value;
+    }
+
+    get Age(){
+        return this.age;
+    }
 }
 
-const userName1 = new userName("lokose", "MN", 26, true, "Bloomington");
-userName1.welcomePage()
-// const userName2 = new userName("Daniel", "VA", 20, false);
+// const userName1 = new userName("lokose", "MN", 26, true, "Bloomington");
+const userName2 = new userName("Daniel", "VA", 20, false, "yei");

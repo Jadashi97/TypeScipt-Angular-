@@ -76,10 +76,13 @@ var user = {
 var welcomePage = function (user) {
     console.log("Hey welcome ".concat(user.name, ", you are from ").concat(user.state, ", you are ").concat(user.age, " and live in ").concat(user.city));
 };
-// welcomePage(user);
-//////////////////////////  Classess ///////////
 var userName = /** @class */ (function () {
     function userName(name, state, age, employeed, city) {
+        this.name = name;
+        this.state = state;
+        this.age = age;
+        this.employeed = employeed;
+        this.city = city;
         this.name = name,
             this.age = age,
             this.employeed = employeed,
@@ -87,12 +90,27 @@ var userName = /** @class */ (function () {
         this.city = city;
         // console.log(`Created a new User named ${this.name
         // } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
+        this.welcomePage();
+        this.signedOff();
     }
     userName.prototype.welcomePage = function () {
         console.log("Hey welcome ".concat(this.name, ", you are from ").concat(this.state, ", you are ").concat(this.age, " and live in ").concat(this.city));
     };
+    userName.prototype.signedOff = function () {
+        console.log("".concat(this.name, " who is ").concat(this.age, " years olf from ").concat(this.city, ", ").concat(this.state, " just signed out"));
+    };
+    Object.defineProperty(userName.prototype, "Age", {
+        get: function () {
+            return this.age;
+        },
+        //////// setters and getters ///////
+        set: function (value) {
+            this.age = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
     return userName;
 }());
-var userName1 = new userName("lokose", "MN", 26, true, "Bloomington");
-userName1.welcomePage();
-// const userName2 = new userName("Daniel", "VA", 20, false);
+// const userName1 = new userName("lokose", "MN", 26, true, "Bloomington");
+var userName2 = new userName("Daniel", "VA", 20, false, "yei");
