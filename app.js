@@ -1,4 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -83,11 +98,11 @@ var userName = /** @class */ (function () {
         this.age = age;
         this.employeed = employeed;
         this.city = city;
-        this.name = name,
-            this.age = age,
-            this.employeed = employeed,
-            this.state = state;
-        this.city = city;
+        this.name = name == undefined ? "(Missing Name)" : name;
+        this.age = age === undefined ? 0 : age;
+        this.employeed = employeed,
+            this.state = state === undefined ? "(Missing state)" : state;
+        this.city = city === undefined ? "(Missing City)" : city;
         // console.log(`Created a new User named ${this.name
         // } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
         this.welcomePage();
@@ -100,9 +115,6 @@ var userName = /** @class */ (function () {
         console.log("".concat(this.name, " who is ").concat(this.age, " years olf from ").concat(this.city, ", ").concat(this.state, " just signed out"));
     };
     Object.defineProperty(userName.prototype, "Age", {
-        get: function () {
-            return this.age;
-        },
         //////// setters and getters ///////
         set: function (value) {
             this.age = value;
@@ -112,5 +124,15 @@ var userName = /** @class */ (function () {
     });
     return userName;
 }());
+var Manager = /** @class */ (function (_super) {
+    __extends(Manager, _super);
+    function Manager(name, state, age, city) {
+        return _super.call(this, name, state, age, city) || this;
+    }
+    Manager.prototype.giveOrders = function () {
+        console.log("To employee");
+    };
+    return Manager;
+}(userName));
 // const userName1 = new userName("lokose", "MN", 26, true, "Bloomington");
 var userName2 = new userName("Daniel", "VA", 20, false, "yei");

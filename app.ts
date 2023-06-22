@@ -64,28 +64,28 @@ let welcomePage = (user:UserData)=>{
 
 // welcomePage(user);
 
-//////////////////////////  Classess ///////////
+//////////////////////////  CLASSES///////////
 interface UserInterface {
-    name: string;
-    state: string;
-    city: string;
+    name?: string;
+    state?: string;
+    city?: string;
     signedOff():any;
 }
 
 class userName{
 
     constructor(
-        public name:string, 
-        public state:string, 
-        public age:number, 
-        public employeed:boolean, 
-        public city:string 
+        public name?:string, 
+        public state?:string, 
+        public age?:number, 
+        public employeed?:boolean, 
+        public city?:string 
         ){
-        this.name = name,
-        this.age = age,
+        this.name = name == undefined ? "(Missing Name)" : name;
+        this.age = age === undefined ? 0 : age;
         this.employeed = employeed,
-        this.state = state;
-        this.city = city;
+        this.state = state === undefined ? "(Missing state)" : state;
+        this.city = city === undefined ? "(Missing City)" : city;
         // console.log(`Created a new User named ${this.name
         // } who is ${this.age} and ${this.employeed} he is employeed, plus he stays in ${this.state}`)
 
@@ -109,8 +109,18 @@ class userName{
         this.age =value;
     }
 
-    get Age(){
-        return this.age;
+    // get Age(){
+    //     return this.age;
+    // }
+}
+
+class Manager extends userName {
+    constructor(name: string | undefined, state: string | undefined, age: number | undefined, city: boolean | undefined){
+        super(name, state, age, city)
+    }
+
+    giveOrders(){
+        console.log("To employee");
     }
 }
 
